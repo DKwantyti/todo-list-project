@@ -22,6 +22,11 @@ do zarządzania codziennymi zadaniami.
 2. Otwórz folder projektu.
 3. Uruchom plik index.html w przeglądarce.
 
+## Fedir Lisnychenko
+
+- Dodałem opis przycisku „Usuń” dla czytników ekranu. Etykieta zawiera nazwę zadania. (https://github.com/Ivan-Mal290/todo-list-project/pull/4)
+- Sprawdziłem dodawanie, oznaczanie i usuwanie zadań, zapis po odświeżeniu strony oraz układ mobilny w Chrome i Firefox.
+
 ## Zespół projektowy
 - Imię Nazwisko – Project Manager
 - Imię Nazwisko – Frontend Developer
