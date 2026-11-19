@@ -35,6 +35,13 @@ input[type="text"] {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 1rem;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #28a745;
+    box-shadow: 0 0 0 3px #28a74533;
 }
 
 button {
@@ -44,6 +51,12 @@ button {
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:focus-visible {
+    outline: 3px solid #28a74566;
+    outline-offset: 2px;
 }
 
 button:hover {
@@ -63,6 +76,19 @@ li {
     margin-top: 10px;
     background: #f8f9fa;
     border-radius: 5px;
+    border-left: 4px solid #28a745;
+}
+
+li input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #28a745;
+    cursor: pointer;
+}
+
+li.done {
+    border-left-color: #ccc;
+    opacity: 0.7;
 }
 
 li span {
@@ -81,4 +107,19 @@ li.done span {
 
 .delete:hover {
     background: #b02a37;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+.footer p {
+    margin-top: 20px;
+    font-size: 0.85rem;
+    color: #999;
 }
