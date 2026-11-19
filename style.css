@@ -1,27 +1,57 @@
+:root {
+    --primary: #6c5ce7;
+    --primary-dark: #5a4bd1;
+    --danger: #ff6b6b;
+    --danger-dark: #e85555;
+    --text: #2d3436;
+    --muted: #8e8e9a;
+    --surface: #ffffff;
+    --item: #f6f5ff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    min-height: 100vh;
     margin: 0;
-    padding: 40px 15px;
+    padding: 60px 15px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-attachment: fixed;
+    color: var(--text);
 }
 
 .container {
-    background: white;
-    max-width: 500px;
+    background: var(--surface);
+    max-width: 520px;
     margin: 0 auto;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px #00000015;
+    padding: 32px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px #0000002e;
+}
+
+header {
+    margin-bottom: 24px;
 }
 
 h1 {
+    margin: 0 0 6px;
     text-align: center;
-    color: #333;
+    font-size: 2rem;
+    color: var(--text);
+}
+
+h1::before {
+    content: "✓ ";
+    color: var(--primary);
 }
 
 p {
+    margin: 0;
     text-align: center;
-    color: #777;
+    color: var(--muted);
 }
 
 form {
@@ -32,63 +62,94 @@ form {
 input[type="text"] {
     flex: 1;
     min-width: 0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 14px 16px;
+    border: 2px solid #e6e4f5;
+    border-radius: 12px;
     font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 input[type="text"]:focus {
     outline: none;
-    border-color: #28a745;
-    box-shadow: 0 0 0 3px #28a74533;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px #6c5ce733;
 }
 
 button {
-    background: #28a745;
+    background: var(--primary);
     color: white;
     border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
+    padding: 14px 22px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s;
-}
-
-button:focus-visible {
-    outline: 3px solid #28a74566;
-    outline-offset: 2px;
+    transition: background 0.2s, transform 0.1s;
 }
 
 button:hover {
-    background: #218838;
+    background: var(--primary-dark);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+button:focus-visible {
+    outline: 3px solid #6c5ce766;
+    outline-offset: 2px;
 }
 
 ul {
     list-style: none;
     padding: 0;
+    margin: 20px 0 0;
+}
+
+ul:empty::after {
+    content: "Brak zadań – dodaj pierwsze! 🎉";
+    display: block;
+    padding: 24px;
+    text-align: center;
+    color: var(--muted);
+    border: 2px dashed #e6e4f5;
+    border-radius: 12px;
 }
 
 li {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 12px;
+    gap: 12px;
+    padding: 14px 16px;
     margin-top: 10px;
-    background: #f8f9fa;
-    border-radius: 5px;
-    border-left: 4px solid #28a745;
+    background: var(--item);
+    border-radius: 12px;
+    border-left: 4px solid var(--primary);
+    animation: slide-in 0.25s ease-out;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px #6c5ce722;
+}
+
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 li input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    accent-color: #28a745;
+    width: 20px;
+    height: 20px;
+    accent-color: var(--primary);
     cursor: pointer;
-}
-
-li.done {
-    border-left-color: #ccc;
-    opacity: 0.7;
 }
 
 li span {
@@ -96,17 +157,26 @@ li span {
     overflow-wrap: anywhere;
 }
 
+li.done {
+    border-left-color: #cfcfd8;
+    opacity: 0.6;
+}
+
 li.done span {
     text-decoration: line-through;
-    color: gray;
+    color: var(--muted);
 }
 
 .delete {
-    background: #dc3545;
+    background: transparent;
+    color: var(--danger);
+    padding: 8px 12px;
+    font-size: 0.9rem;
 }
 
 .delete:hover {
-    background: #b02a37;
+    background: var(--danger);
+    color: white;
 }
 
 .visually-hidden {
@@ -118,8 +188,28 @@ li.done span {
     white-space: nowrap;
 }
 
+.footer {
+    max-width: 520px;
+    margin: 24px auto 0;
+}
+
 .footer p {
-    margin-top: 20px;
     font-size: 0.85rem;
-    color: #999;
+    color: #ffffffb3;
+}
+
+.footer .team {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.footer .team span {
+    padding: 6px 12px;
+    background: #ffffff26;
+    border-radius: 999px;
+    color: white;
+    font-weight: 500;
 }
