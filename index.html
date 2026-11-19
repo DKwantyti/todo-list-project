@@ -3,29 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Prosta aplikacja To-Do List do zarządzania codziennymi zadaniami">
     <title>To-Do List</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Moja lista zadań</h1>
-        <p>Dodawaj i zarządzaj swoimi zadaniami</p>
+    <main class="container">
+        <header>
+            <h1>Moja lista zadań</h1>
+            <p>Dodawaj i zarządzaj swoimi zadaniami</p>
+        </header>
 
         <form id="taskForm">
+            <label for="taskInput" class="visually-hidden">Nowe zadanie</label>
             <input
                 type="text"
                 id="taskInput"
                 placeholder="Wpisz nowe zadanie..."
                 maxlength="100"
+                autocomplete="off"
                 required
             >
             <button type="submit">Dodaj</button>
         </form>
 
-        <ul id="taskList"></ul>
-    </div>
+        <ul id="taskList" aria-label="Lista zadań"></ul>
+    </main>
+
+    <footer class="footer">
+        <p>To-Do List &copy; 2026 – projekt zespołowy</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
 </html>
-
